@@ -1,69 +1,43 @@
-import { Box, Button, Input, VStack, Text } from "@chakra-ui/react";
-import { FormControl, FormLabel } from "@chakra-ui/form-control";
 import { useState } from "react";
 
-export default function UserForm() {
+export default function ContactForm() {
     const [formData, setFormData] = useState({
         name: "",
         email: "",
         phone: "",
-        address: "",
+        address: ""
     });
-    const [errors, setErrors] = useState({});
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const validate = () => {
-        let newErrors = {};
-        if (!formData.name) newErrors.name = "Name is required";
-        if (!formData.email) newErrors.email = "Email is required";
-        if (!formData.phone) newErrors.phone = "Phone number is required";
-        if (!formData.address) newErrors.address = "Address is required";
-        setErrors(newErrors);
-        return Object.keys(newErrors).length === 0;
-    };
-
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (validate()) {
-            console.log(formData);
-        }
+        console.log("Form Data Submitted: ", formData);
     };
 
     return (
-
-        <div className="bg-white shadow-lg rounded-lg p-6 w-96">
-            <h2 className="text-2xl font-bold text-center mb-4">User Form</h2>
+        <div className="max-w-md mx-auto bg-gray-800 p-6 rounded-lg shadow-lg text-white">
+            <h2 className="text-xl font-bold mb-4">Contact Form</h2>
             <form onSubmit={handleSubmit}>
-                <VStack spacing={2}>
-                    <FormControl isInvalid={errors.name}>
-                        <FormLabel className="block text-sm font-medium text-gray-700">Name</FormLabel>
-                        <Input type="text" name="name" value={formData.name} onChange={handleChange} className="mt-1 p-2 w-full border rounded-md focus:ring focus:ring-blue-300" />
-                        {errors.name && <Text color="red.500">{errors.name}</Text>}
-                    </FormControl>
-
-                    <FormControl isInvalid={errors.email}>
-                        <FormLabel className="block text-sm font-medium text-gray-700">Email</FormLabel>
-                        <Input type="email" name="email" value={formData.email} onChange={handleChange} className="mt-1 p-2 w-full border rounded-md focus:ring focus:ring-blue-300" />
-                        {errors.email && <Text color="red.500">{errors.email}</Text>}
-                    </FormControl>
-
-                    <FormControl isInvalid={errors.phone}>
-                        <FormLabel className="block text-sm font-medium text-gray-700">Phone Number</FormLabel>
-                        <Input type="tel" name="phone" value={formData.phone} onChange={handleChange} className="mt-1 p-2 w-full border rounded-md focus:ring focus:ring-blue-300" />
-                        {errors.phone && <Text color="red.500">{errors.phone}</Text>}
-                    </FormControl>
-
-                    <FormControl isInvalid={errors.address}>
-                        <FormLabel className="block text-sm font-medium text-gray-700">Address</FormLabel>
-                        <Input type="text" name="address" value={formData.address} onChange={handleChange} className="mt-1 p-2 w-full border rounded-md focus:ring focus:ring-blue-300" />
-                        {errors.address && <Text color="red.500">{errors.address}</Text>}
-                    </FormControl>
-
-                    <Button type="submit" className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 transition">Submit</Button>
-                </VStack>
+                <div className="mb-4">
+                    <label className="block mb-1">Name</label>
+                    <input type="text" name="name" value={formData.name} onChange={handleChange} className="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:outline-none focus:border-blue-500" required />
+                </div>
+                <div className="mb-4">
+                    <label className="block mb-1">Email</label>
+                    <input type="email" name="email" value={formData.email} onChange={handleChange} className="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:outline-none focus:border-blue-500" required />
+                </div>
+                <div className="mb-4">
+                    <label className="block mb-1">Phone</label>
+                    <input type="tel" name="phone" value={formData.phone} onChange={handleChange} className="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:outline-none focus:border-blue-500" required />
+                </div>
+                <div className="mb-4">
+                    <label className="block mb-1">Address</label>
+                    <textarea name="address" value={formData.address} onChange={handleChange} className="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:outline-none focus:border-blue-500" required />
+                </div>
+                <button type="submit" className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">Submit</button>
             </form>
         </div>
     );
