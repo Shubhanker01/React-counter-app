@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Phone, Mail, MapPin, User } from "lucide-react";
+import { Phone, Mail, MapPin, User, IdCard } from "lucide-react";
 
 const UserProfile = () => {
     let [data, getData] = useState({})
@@ -7,10 +7,9 @@ const UserProfile = () => {
     useEffect(() => {
         if (getUserData) {
             getData(JSON.parse(getUserData))
-            console.log(JSON.parse(getUserData))
         }
         else {
-            getData({ name: "samplename", email: "sample@gmail.com", phone: "000000", address: "sample address" })
+            getData({ name: "samplename", id: 'random-id', email: "sample@gmail.com", phone: "000000", address: "sample address" })
         }
     }, [])
 
@@ -23,6 +22,9 @@ const UserProfile = () => {
             </div>
             <div className="text-center">
                 <h2 className="text-xl font-semibold mb-2">{data.name}</h2>
+                <p className="flex items-center justify-center">
+                    <IdCard className="w-4 h-4 mr-2" /> {data.id}
+                </p>
                 <p className="flex items-center justify-center">
                     <Mail className="w-4 h-4 mr-2" /> {data.email}
                 </p>

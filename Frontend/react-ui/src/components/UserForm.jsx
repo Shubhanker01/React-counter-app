@@ -1,6 +1,7 @@
 import { useState } from "react";
 import UserProfile from "./UserProfile";
 import { toast } from "react-toastify";
+import { nanoid } from 'nanoid'
 
 export default function ContactForm() {
     const [dirty, isDirty] = useState(false)
@@ -24,6 +25,8 @@ export default function ContactForm() {
     const handleSubmit = (e) => {
         e.preventDefault();
         toast.success("Your data is successfully saved", { position: "top-center" })
+        let id = nanoid()
+        formData.id = id
         localStorage.setItem('userData', JSON.stringify(formData))
         setFormData({ ...formData, name: "", email: "", phone: "", address: "" })
         isDirty(false)
