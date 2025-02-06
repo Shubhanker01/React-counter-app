@@ -34,8 +34,8 @@ export default function ContactForm() {
 
     return (
         <>
-            <div className="grid grid-cols-2 py-8">
-                <div className="w-[70%] mx-auto bg-gray-800 p-6 rounded-lg shadow-lg text-white">
+            <div className="grid sm:grid-cols-2 py-8">
+                <div className="sm:w-[70%] w-[80%] my-4 mx-auto bg-gray-800 p-6 rounded-lg shadow-lg text-white">
                     <h2 className="text-xl font-bold mb-4">Contact Form</h2>
                     <form onSubmit={handleSubmit}>
                         <div className="mb-4">

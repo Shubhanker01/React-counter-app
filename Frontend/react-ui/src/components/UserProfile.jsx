@@ -16,7 +16,7 @@ const UserProfile = () => {
 
 
     return (
-        <div className="w-[50%] bg-slate-800 text-slate-100 mx-auto p-4 shadow-lg rounded-2xl">
+        <div className="sm:w-[50%] w-[80%] bg-slate-800 text-slate-100 mx-auto p-4 shadow-lg rounded-2xl">
             <div className="m-[15px_auto]">
                 <User className="mx-auto" size={48}></User>
             </div>

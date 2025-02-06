@@ -9,7 +9,7 @@ function MainApp() {
     return (
         <>
             <div className='h-full'>
-                <div className='pt-8 ml-8 w-[30%] rounded-2xl p-4 text-slate-100'>
+                <div className='pt-8 ml-8 w-[100%] rounded-2xl p-4 text-slate-100'>
                     <h2 className='ml-4 text-xl'>Welcome {user}</h2>
                 </div>
                 <div className='grid sm:grid-cols-2 gap-1'>
