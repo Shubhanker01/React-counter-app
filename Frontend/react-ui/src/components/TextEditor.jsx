@@ -26,7 +26,7 @@ function TextEditor() {
     }
     return (
         <>
-            <div className='w-1/2 mx-auto pt-[50px] pb-[50px]'>
+            <div className='w-[70%] mx-auto pt-[50px] pb-[50px]'>
                 <JoditEditor
                     ref={editor}
                     value={localStorage.getItem('content') || content}

@@ -1,18 +1,18 @@
-import { useState } from 'react'
 import './App.css'
-import Counter from './components/Counter'
-import UserForm from './components/UserForm'
 import { ToastContainer } from 'react-toastify'
-import TextEditor from './components/TextEditor'
 
+import Home from './components/Home'
+import { Routes, Route } from 'react-router-dom'
+import MainApp from './components/MainApp'
 function App() {
 
   return (
     <>
       <ToastContainer />
-      <UserForm />
-      <Counter />
-      <TextEditor/>
+      <Routes>
+        <Route path='/' element={<Home />}></Route>
+        <Route path='/main-app/:id' element={<MainApp />}></Route>
+      </Routes>
     </>
   )
 }
